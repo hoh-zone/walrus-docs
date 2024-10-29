@@ -34,6 +34,10 @@ jobs:
         with:
           with_linkcheck: "false"
         if: github.event.action != 'closed'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./book
 
   # Deployment job
   deploy:

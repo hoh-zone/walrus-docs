@@ -42,12 +42,9 @@ runs:
         curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
         rustup update
         cargo install mdbook-i18n-helpers
+      shell: bash
     - name: Build the book and check for broken links
       run: MDBOOK_BOOK__LANGUAGE=zh_CN mdbook build
       env:
         RUST_LOG: INFO
       shell: bash
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./book
