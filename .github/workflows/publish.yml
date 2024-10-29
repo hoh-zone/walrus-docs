@@ -30,6 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install mdbook-i18n-helpers
+        run: |
+          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
+          rustup update
+          cargo install mdbook-i18n-helpers
       - uses: ./.github/actions/build-mdbook
         with:
           with_linkcheck: "false"
