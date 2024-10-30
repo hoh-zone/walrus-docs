@@ -38,7 +38,7 @@ runs:
         curl -sSL "$url" | tar -xz --directory=bin
       shell: bash
     - name: Build the book and check for broken links
-      run: mdbook build
+      run: MDBOOK_BOOK__LANGUAGE=zh_CN mdbook build
       env:
         RUST_LOG: INFO
       shell: bash
